@@ -43,7 +43,7 @@ This means you are no longer limited to controlling OBS from within your local n
 * OBS Studio
 * OBS WebSocket plugin enabled
 * Lua scripting enabled in OBS
-* (Cloudflare Tunnel client)[https://github.com/cloudflare/cloudflared]
+* [Cloudflare Tunnel client](https://github.com/cloudflare/cloudflared)
 
 ---
 
