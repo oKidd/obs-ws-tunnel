@@ -92,10 +92,10 @@ cloudflared tunnel run obs-tunnel
 Use:
 
 ```
-wss://obs.yourdomain.com
+obs.yourdomain.com/
 ```
 
-* Port: 443 (implicit)
+* Port: 4455 (default)
 * Password: your OBS WebSocket password
 
 ---
@@ -108,46 +108,3 @@ In OBS:
 * Enable WebSocket server
 * Set a password
 * Default port: 4455
-
----
-
-## Optional: Run as a Service
-
-```bash
-cloudflared service install
-```
-
----
-
-## Optional: Add Access Protection
-
-In Cloudflare:
-
-* Go to **Zero Trust → Access**
-* Protect `obs.yourdomain.com` with login (Google, email, etc.)
-
----
-
-## Troubleshooting
-
-* Ensure `cloudflared` is running
-* Check OBS WebSocket is enabled
-* Verify DNS record is proxied (orange cloud)
-
-Test:
-
-```bash
-https://obs.yourdomain.com
-```
-
----
-
-## Result
-
-You now have a persistent endpoint:
-
-```
-wss://obs.yourdomain.com
-```
-
-for remotely controlling OBS from anywhere.
