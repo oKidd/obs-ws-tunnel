@@ -1,44 +1,49 @@
 # OBS WebSocket Tunnel (Cloudflare + Lua)
 
-A lightweight Lua script designed to expose your local OBS WebSocket server to the internet using a tunnel (e.g., Cloudflare Tunnel).
+A lightweight Lua script that lets you control your local OBS instance from **anywhere on the internet**, even outside your local network.
 
-This allows remote control of OBS without opening ports or exposing your local network directly.
+It works by exposing your OBS WebSocket server through a secure tunnel (e.g., Cloudflare Tunnel), so you can remotely manage OBS without opening ports or dealing with complex network configuration.
+
+> ✅ Control OBS from another city, device, or network
+> ✅ No port forwarding required
+> ✅ Works behind NAT / firewalls
+
+---
 
 ## ✨ Features
 
-- 🌐 Expose local OBS WebSocket securely
-- 🔌 Works with tunneling solutions (Cloudflare Tunnel recommended)
-- ⚡ Minimal setup (Lua script)
-- 🔒 Avoids direct port forwarding
-- 🧩 Compatible with OBS WebSocket API
-
-OBS WebSocket enables remote control of OBS via a WebSocket server (default port `4455`) :contentReference[oaicite:0]{index=0}
+* 🌐 Expose local OBS WebSocket securely
+* 🌍 Control OBS from anywhere (not just your LAN)
+* 🔌 Works with tunneling solutions (Cloudflare Tunnel recommended)
+* ⚡ Minimal setup (Lua script)
+* 🔒 Avoids direct port forwarding
+* 🧩 Compatible with OBS WebSocket API
 
 ---
 
 ## 📦 Project Structure
 
-- `cloudflare_tunnel.lua` → Main script to connect OBS to your tunnel endpoint
+* `cloudflare_tunnel.lua` → Main script to connect OBS to your tunnel endpoint
 
 ---
 
 ## 🚀 How It Works
 
 1. OBS runs locally with the WebSocket plugin enabled.
-2. A tunnel (like Cloudflare Tunnel) exposes your local port to a public URL.
-3. This script connects OBS to that tunnel endpoint.
-4. Remote clients can control OBS through the public tunnel URL.
+2. A tunnel (e.g., Cloudflare Tunnel) exposes your local OBS WebSocket to a public URL.
+3. The Lua script helps bridge/configure the connection.
+4. You can connect to OBS from **anywhere in the world** using that public endpoint.
 
-Tunneling works by forwarding local traffic through an external server over protocols like WebSocket or HTTP, allowing access behind firewalls or NAT :contentReference[oaicite:1]{index=1}
+This means you are no longer limited to controlling OBS from within your local network.
 
 ---
 
 ## ⚙️ Requirements
 
-- OBS Studio
-- OBS WebSocket plugin enabled
-- Lua scripting enabled in OBS
-- A running tunnel (e.g., Cloudflare Tunnel)
+* OBS Studio
+* OBS WebSocket plugin enabled
+* Lua scripting enabled in OBS
+* A running tunnel (e.g., Cloudflare Tunnel)
 
 ---
 
@@ -46,9 +51,9 @@ Tunneling works by forwarding local traffic through an external server over prot
 
 ### 1. Enable OBS WebSocket
 
-- Open OBS
-- Go to `Tools → WebSocket Server Settings`
-- Enable the server (default port: `4455`)
+* Open OBS
+* Go to `Tools → WebSocket Server Settings`
+* Enable the server (default port: `4455`)
 
 ---
 
@@ -64,12 +69,62 @@ You can use Cloudflare Tunnel or any similar solution.
 
 ### 3. Load the Script in OBS
 
-- Go to `Tools → Scripts`
-- Add `cloudflare_tunnel.lua`
-- Configure parameters if needed
+* Go to `Tools → Scripts`
+* Add `cloudflare_tunnel.lua`
+* Configure parameters if needed
 
 ---
 
 ### 4. Connect Remotely
 
 Use your public tunnel URL to connect to OBS WebSocket:
+
+```
+obs.your-domain.com/
+```
+
+---
+
+## 🌍 Example Use Case
+
+Control your OBS setup from:
+
+* Your phone using mobile data
+* Another computer outside your home network
+* A remote production environment
+
+---
+
+## 🔐 Security Notes
+
+* Always use authentication (password/token)
+* Prefer HTTPS/WSS tunnels
+* Avoid exposing raw ports directly
+
+---
+
+## 🧠 Use Cases
+
+* Remote streaming control
+* Cloud-based automation
+* Multi-device OBS management
+* Remote production setups
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for development and controlled environments.
+Ensure proper security practices before exposing any service publicly.
+
+---
+
+## 📄 License
+
+MIT (or same as repository)
+
+---
+
+## 🤝 Contributing
+
+PRs and suggestions are welcome!
